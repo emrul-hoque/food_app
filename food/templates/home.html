@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Shop</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #5b80a5; 
+        }
+        /* Optional: Add custom styles */
+        .content-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-    body {
-        background-color: #5b80a5; 
-    }
-    
-</style>
 <body>
-    <h1>Welcome to Dhaka Restaurant!</h1>
-    {% load static %}
-    <img src="{% static 'image.jpg' %}" alt="Food Image">
-    <h2>Place Your Order:</h2>
-    <form action="{% url 'place_order' %}" method="post">
-        {% csrf_token %}
-        <select name="product_id">
-            {% for product in products %}
-            <option value="{{ product.id }}">{{ product.name }} - {{ product.price }}</option>
-            {% endfor %}
-        </select><br>
-        Quantity: <input type="number" name="quantity" min="1" value="1"><br>
-        Delivery Address: <input type="text" name="delivery_address"><br>
-        <button type="submit">Place Order</button>
-    </form>
+    <div class="container content-container">
+        <h1>Welcome to Dhaka Restaurant!</h1>
+        {% load static %}
+        <img src="{% static 'image.jpg' %}" alt="Food Image">
+        {% include 'products.html' %}
+    </div>  
 </body>
 </html>
