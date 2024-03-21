@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Order Summary</h2>
-<p>Total Amount: Taka {{ total_amount }}</p>
-<p>Estimated Delivery Time: {{ delivery_time }} minutes</p>
+<a href="{% url 'home' %}" class="home-link">Home</a> 
+<div class="container mt-15">
+  <div class="row justify-content-center mt-15"> 
+    <div class="col-md-6">
+      <h2 class="text-center">Order Summary</h2>
+      <p class="text-center" style="font-size: 24px;">Total Amount: <strong style="font-size: 24px;">Taka {{ total_amount }}</strong></p>
+      <p class="text-center" style="font-size: 24px;">Estimated Delivery Time: <strong style="font-size: 24px;">{{ delivery_time }} minutes</strong></p>
+    </div>
+  </div>
+</div>
 {% endblock %}

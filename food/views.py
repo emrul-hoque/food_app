@@ -3,6 +3,7 @@ from .models import Product, Order
 from django.http import HttpResponse
 import random
 
+
 def home(request):
     products = Product.objects.all()
     context = {'products': products}
@@ -37,7 +38,16 @@ def place_order(request):
 
         return render(request, 'order_summary.html', {'total_amount': total_amount, 'delivery_time': delivery_time})
 
+
 def calculate_total_amount(product_id, quantity):
-   
-    total_amount = 0 
+    # Retrieve the product from the database
+    product = Product.objects.get(pk=product_id)
+    
+    # Calculate total amount
+    total_amount = product.price * quantity
+    
     return total_amount
+
+
+def about_us(request):
+    return render(request, 'about_us.html')

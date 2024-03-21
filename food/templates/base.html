@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Shop</title>
+    <title>Hawk's Food Delivery</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #b7d7f7; 
+            margin-bottom: 60px; /* Adjust margin to accommodate the footer */
         }
         
         .content-container {
@@ -21,13 +22,75 @@
         }
 
         h1 {
-            margin-bottom: 60px; /* Add margin-bottom to create space */
+            margin-bottom: 60px; 
         }
 
+        .home-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: black; /* Set color to black */
+            text-decoration: none;
+            font-weight: bold; /* Set font weight to bold */
+        }
+        
+        /* Footer style */
+        .footer {
+            position: relative; /* Position relative to the body */
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px; /* Adjust margin to separate from content */
+        }
+        
+        /* Header style */
+        header {
+            color: black;
+            padding: 10px 0;
+            font: bold;
+            text-align: right;
+               }
+        
+               header a {
+    color: black; /* Set font color of navigation links to black */
+    text-decoration: none; /* Remove underline from links */
+    margin-left: 20px; /* Add some margin between links */
+}
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align:right;
+            
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
+    
+    {% if not exclude_header %}
+        {% include 'header.html' %}
+    {% endif %}
+    
     {% block content %}
     {% endblock %}
+    
+    <!-- Footer -->
+    <div class="footer">
+        Email: emrul.hoque@icloud.com; WhatsApp: +88 017 6353 1441
+    </div>
+    <!-- End of Footer -->
+
 </body>
 </html>

@@ -2,9 +2,13 @@
 
 {% block content %}
 <div class="container content-container">
-    <h1>Welcome to Dhaka Restaurant!</h1>
+    <h1>Welcome to Hawk's Food Delivery!</h1>
     {% load static %}
     <img src="{% static 'image.jpg' %}" alt="Food Image">
     {% include 'products.html' %}
 </div>
 {% endblock %}
+
+{% with exclude_header=True %}
+    {% include 'base.html' %}
+{% endwith %}
